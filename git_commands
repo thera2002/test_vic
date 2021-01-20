@@ -1,1 +1,2 @@
 git config --global alias.graph 'log --oneline --all --graph –-decorate'
+git config --global pull.ff only
