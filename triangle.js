@@ -38,7 +38,7 @@ class Triangle {
     } 
     /**
      * The triangle's area
-     * @example <caption>Example usage of area().</caption>
+     * @example <caption>Example usage of function area().</caption>
      * // returns w*h*0.5
      * t.area();
      * @return {number} area
