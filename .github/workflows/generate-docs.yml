@@ -9,12 +9,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Build
-        uses: andstor/jsdoc-action@v1
+      - name: JSDoc Action
+        uses: andstor/jsdoc-action@v1.2.1
         with:
           source_dir: ./
-          output_dir: ./handbook
+          output_dir: ./docs
           config_file: ./conf.json
           template: ./ink-docstrap
           front_page: ./README.md
@@ -23,4 +22,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: ./handbook
+          publish_dir: ./docs
