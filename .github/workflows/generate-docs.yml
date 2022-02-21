@@ -9,12 +9,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: JSDoc Action
         uses: andstor/jsdoc-action@v1.2.1
         with:
           output_dir: docs
           template: ink-docstrap
-          front_page: /README.md
+          front_page: README.md
           recurse: false
 
       - name: Deploy
