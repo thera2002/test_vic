@@ -12,8 +12,8 @@ jobs:
       - name: JSDoc Action
         uses: andstor/jsdoc-action@v1.2.1
         with:
-          source_dir: .
-          output_dir: docs
+          source_dir: ./
+          output_dir: ./docs
           config_file: jsdoc.json
           template: ink-docstrap
           front_page: README.md
