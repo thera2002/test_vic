@@ -17,7 +17,6 @@ jobs:
         with:
           source_dir: ./
           output_dir: ./docs
-          template: ink-docstrap
           front_page: README.md
           recurse: false
 
