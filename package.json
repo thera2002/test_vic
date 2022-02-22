@@ -9,7 +9,8 @@
   "scripts": {
     "doc": "jsdoc -c jsdoc/jsdoc.json -R README.md .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cleandoc": "find ./docs/* -not -name 'README.txt' -delete"
+    "cleandoc": "find ./docs/* -not -name 'README.txt' -delete",
+    "rollup": "mkdir -p build; cp triangle.js build"
   },
   "repository": {
     "type": "git",
