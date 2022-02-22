@@ -22,7 +22,6 @@ jobs:
           source_dir: ./
           output_dir: ./docs
           template: ink-docstrap
-          template_dir: node_modules/ink-docstrap/template
           front_page: README.md
 
       - name: Deploy
