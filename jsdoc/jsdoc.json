@@ -10,10 +10,11 @@
     "excludePattern": "(^|\\/|\\\\)_"
   },
   "opts": {
-    "template": "./node_modules/ink-docstrap/template",
+    "template": "./jsdoc/template/openlime/",
     "encoding": "utf8",
     "destination": "./docs/",
-    "recurse": false
+    "recurse": false,
+    "tutorials": "./jsdoc/tutorials"
   },
   "plugins": [
     "plugins/markdown"

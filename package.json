@@ -1,0 +1,29 @@
+{
+  "name": "test_vic",
+  "version": "1.0.0",
+  "description": "Web-based, advanced images viewer (RTI, multispectral, BRDF, etc. )",
+  "main": "triangle.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "doc": "jsdoc -c jsdoc/jsdoc.json -R README.md .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cleandoc": "find ./docs/* -not -name 'README.txt' -delete"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thera2002/test_vic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thera2002/test_vic/issues"
+  },
+  "homepage": "https://github.com/thera2002/test_vic#readme",
+  "devDependencies": {
+    "ink-docstrap": "^1.3.2",
+    "jsdoc": "^3.6.10"
+  }
+}
