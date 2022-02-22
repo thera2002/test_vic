@@ -12,12 +12,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup node
+        uses: actions/setup-node@v2
+        run: npm install ink-docstrap
+
       - name: JSDoc Action
         uses: andstor/jsdoc-action@v1.2.1
         with:
           source_dir: ./
           output_dir: ./docs
-          template: minami
+          template_dir: jsdoc/template/openlime
           front_page: README.md
           recurse: false
       - name: Deploy
