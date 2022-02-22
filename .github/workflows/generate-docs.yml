@@ -19,6 +19,7 @@ jobs:
       - name: JSDoc Action
         uses: andstor/jsdoc-action@v1.2.1
         with:
+          front_page: ./README.md
           config_file: ./jsdoc/jsdoc.json
 
       - name: Deploy
