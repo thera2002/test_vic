@@ -16,7 +16,7 @@ jobs:
         uses: andstor/jsdoc-action@v1.2.1
         with:
           config_file: ./jsdoc/jsdoc.json
-
+          template_dir: ./jsdoc/template/openlime
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
