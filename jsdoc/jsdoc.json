@@ -10,11 +10,10 @@
       "excludePattern": "(^|\\/|\\\\)_"
     },
     "opts": {
-      "template": "./jsdoc/template/openlime/",
+      "template": "./jsdoc/template/openlime",
       "encoding": "utf8",
       "destination": "./docs/",
-      "recurse": false,
-      "tutorials": "./jsdoc/tutorials"
+      "recurse": false
     },
     "plugins": [
       "plugins/markdown"

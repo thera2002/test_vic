@@ -18,7 +18,6 @@ jobs:
           source_dir: ./
           output_dir: ./docs
           front_page: README.md
-          template_dir: ./jsdoc/template/openlime
           config_files: ./jsdoc/jsdoc.json
           recurse: false
       - name: Deploy
