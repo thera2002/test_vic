@@ -13,6 +13,7 @@
       "encoding": "utf8",
       "destination": "./docs",
       "template": "./jsdoc/template/openlime",
+      "tutorials": "./jsdoc/template/tutorials",
       "recurse": false
     },
     "plugins": [
