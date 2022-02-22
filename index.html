@@ -85,6 +85,130 @@
 
 
 
+    <section class="readme-section">
+        <article><h1>Openlime (Open Layered IMage Explorer)</h1>
+<p>Web-based, advanced images viewer (RTI, multispectral, BRDF, etc. )</p>
+<h2>Installing npm</h2>
+<h3>Ubuntu</h3>
+<pre class="prettyprint source lang-bash"><code>sudo apt install npm
+</code></pre>
+<h4>Ubuntu 18.04</h4>
+<p>You might have some problem using the old npm version shipped with Ubuntu18.04, and even upgrading it. This worked for me:</p>
+<pre class="prettyprint source lang-bash"><code>sudo npm install -g npm@latest-6
+</code></pre>
+<h3>Windows</h3>
+<p>To obtain npm for Windows, you need to download the Windows version
+of node.js from https://nodejs.org/en/download/ .
+You can download either the Windows Installer (.msi) or
+the Windows Binary (.zip).  If you download
+and expand the Windows
+Binary zip file, you will afterwards
+need to set your <code>PATH</code> variable
+to include the directory that contains the npm executable
+(this directory is the subdirectory <code>node_modules\npm\bin</code>).</p>
+<h2>Setting up npm (all platforms)</h2>
+<p>The following step should be performed in the <code>openlime</code>
+directory that was cloned from this repository.</p>
+<p>Before using npm, you need to install the required
+packages locally.  This only needs to be done once.
+The following command tells npm to download
+all the webpack packages (and their dependencies) listed in the
+<code>package.json</code> file.  These will be put in the <code>./node_modules</code>
+directory.</p>
+<pre class="prettyprint source lang-bash"><code>npm install
+</code></pre>
+<p>The downloaded packages include <code>rollup</code>, <code>documentation</code>,
+and <code>nodemon</code>, which will be used below.</p>
+<h2>Using npm (all platforms)</h2>
+<p>These steps should be performed in the <code>openlime</code>
+directory that was cloned from this repository.</p>
+<h3>Build the code</h3>
+<p>The following command reads the javascript code in <code>./src</code>, and
+puts the transpiled webpack code in <code>./dist/main.js</code>.</p>
+<pre class="prettyprint source lang-bash"><code>npm run build
+</code></pre>
+<p>The webpack code is used, for example, by the
+<code>./dist/index.html</code> web page.</p>
+<h3>Run the node.js server</h3>
+<p>If you wish, you can run the node.js development server
+to serve your web pages.
+This server will use <code>./dist</code> as the home directory.
+The server is run in &quot;hot&quot; mode, which means that
+whenever you change a file in the <code>./src</code> directory,
+the webpack code will automatically be rebuilt, and
+your web browser will automatically refresh, to reflect
+your latest changes.</p>
+<pre class="prettyprint source lang-bash"><code>npm run start
+</code></pre>
+<p>Then access the demo app at http://localhost:8080 (which
+by default is <code>./dist/index.html</code>).</p>
+<p>If you prefer to serve from a different port, say 8088, you can call</p>
+<pre class="prettyprint source lang-bash"><code>npm run start -- --port 8088
+</code></pre>
+<h3>Create a rollup file to use with other servers</h3>
+<p>You do not need to use node.js as the server.  Instead, you
+can use the <code>&lt;script&gt;</code> approach, embedding a rollup file, either
+<code>./build/openlime.min.js</code>
+or
+<code>./build/openlime.js</code>,
+in your web page.<br>
+The files
+<code>./dist/ui_custom.html</code> and <code>./dist/ui_svg.html</code> are examples of
+this approach.<br>
+Such files will display correctly when served from any web server.
+To create the rollup files, call <code>rollup</code>:</p>
+<pre class="prettyprint source lang-bash"><code>npm run rollup
+</code></pre>
+<h3>Keep the rollup files up to date</h3>
+<p>If you keep a <code>nodemon</code> (<strong>node</strong> <strong>mon</strong>itor) script running, it
+will automatically update the rollup files
+<code>./build/openlime.min.js</code>
+and
+<code>./build/openlime.js</code>
+whenever anything changes in the <code>./src</code> directory.
+Note that, unlike with the node.js server, the browser will
+not refresh automatically; you will have to do that yourself
+once the rollup files have been updated.</p>
+<pre class="prettyprint source lang-bash"><code>npm run nodemon
+</code></pre>
+<h3>Create documentation</h3>
+<p>The documentation is created from structured comments in the
+source code (in <code>./src</code>).
+Once created, it is accessible from <code>./docs/index.html</code></p>
+<pre class="prettyprint source lang-bash"><code>npm run documentation
+</code></pre>
+<h3>Customization</h3>
+<p>skin.css</p>
+<p>skin.svg</p>
+<p>Run</p>
+<pre class="prettyprint source lang-bash"><code>svgo -p 1 skin.svg -o skin.min.svg
+</code></pre>
+<p>to minimize svg.</p>
+<p>Documentation.js supports markdown syntax and JSDoc syntax.</p>
+<p>JSON example of the configuration:</p>
+<pre class="prettyprint source"><code>{
+	camera: { 
+	},
+	canvas: {
+		rasters: [
+			{
+				id:
+				name:
+				width: //optional
+				height: //optional
+				url: 
+				layout: &lt;image|google|deepzoom|zoomify|iip|iiif> //optional if can be determined from the url.
+				
+
+			}
+		]
+	},
+	overlay: {
+	}
+}
+</code></pre></article>
+    </section>
+
 
 
 
