@@ -10,9 +10,9 @@
       "excludePattern": "(^|\\/|\\\\)_"
     },
     "opts": {
-      "template": "./jsdoc/template/openlime",
+      "template": "jsdoc/template/openlime",
       "encoding": "utf8",
-      "destination": "./docs/",
+      "destination": "docs",
       "recurse": false
     },
     "plugins": [
