@@ -19,7 +19,6 @@ jobs:
           output_dir: ./docs
           template: ink-docstrap
           front_page: README.md
-          config_file: ./jsdoc/jsdoc.json
           recurse: false
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
