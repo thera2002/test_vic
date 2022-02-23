@@ -28,8 +28,13 @@ jobs:
     - name: rollup
       run: npm run rollup
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
       with:
-        name: my-artifact
-        path: build
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file_glob: true
+        file: build/*
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "This is my release text"
+
