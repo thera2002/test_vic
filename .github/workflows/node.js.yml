@@ -5,25 +5,31 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    tags:
+      - '*'
 
 jobs:
-  build:
 
-    runs-on: ubuntu-latest
-    
+  build:
+    runs-on: ubuntu-latest    
     steps:
-    - uses: actions/checkout@v2
+
+    - name: checkout code
+      uses: actions/checkout@v2
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         cache: 'npm'
-    - run: npm ci
-    - run: npm run rollup
-    - uses: actions/upload-artifact@v2
+
+    - name: install npm
+      run: npm ci
+
+    - name: rollup
+      run: npm run rollup
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
       with:
         name: my-artifact
         path: build
-
