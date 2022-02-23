@@ -2,7 +2,7 @@
 Web-based, advanced images viewer (RTI, multispectral, BRDF, etc. )
 
 ## Latest Release
-Here the [latest release](/release/latest)
+Here the [latest release](https://github.com/thera2002/test_vic/release/latest)
 
 ## Installing npm
 
