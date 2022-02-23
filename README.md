@@ -1,6 +1,9 @@
 # Openlime (Open Layered IMage Explorer)
 Web-based, advanced images viewer (RTI, multispectral, BRDF, etc. )
 
+## Latest Release
+Here the [latest release](/release/latest)
+
 ## Installing npm
 
 ### Ubuntu
