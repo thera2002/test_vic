@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
 
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
     - name: checkout code
       uses: actions/checkout@v2
 
@@ -31,13 +35,13 @@ jobs:
     - name: zip build 
       uses: montudor/action-zip@v1
       with:
-        args: zip -qq -r openlime-${{ github.ref }}.zip build
+        args: zip -qq -r openlime-${{ steps.get_version.outputs.VERSION }}.zip build
 
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: openlime-${{ github.ref }}.zip
+        file: openlime-${{ steps.get_version.outputs.VERSION }}.zip
         tag: ${{ github.ref }}
         overwrite: true
         body: "This is my release text"
