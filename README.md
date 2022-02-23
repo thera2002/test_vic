@@ -1,6 +1,9 @@
 # Openlime (Open Layered IMage Explorer)
 Web-based, advanced images viewer (RTI, multispectral, BRDF, etc. )
 
+## Some info
+Username: @user_name
+
 ## Latest Release
 Here is the [latest release](https://github.com/thera2002/test_vic/releases/latest)
 
