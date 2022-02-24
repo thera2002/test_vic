@@ -42,18 +42,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - uses: fregante/release-with-changelog@v3
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        exclude: '^Meta'
-        commit-template: '- {title} ← {hash}'
-        template: |
-          ### Changelog
-
-          {commits}
-
-          {range}
-
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
