@@ -16,7 +16,7 @@ jobs:
 
     - name: Get tag version
       id: get_version
-      run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
     - name: Checkout code
       uses: actions/checkout@v2
@@ -35,19 +35,20 @@ jobs:
     - name: ZIP build 
       uses: montudor/action-zip@v1
       with:
-        args: zip -qq -r openlime-${{ steps.get_version.outputs.VERSION }}.zip build
+        args: zip -qq -r openlime-${{ env.RELEASE_VERSION }}.zip build
 
     - name: Create automatic release
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
-        files: openlime-${{ steps.get_version.outputs.VERSION }}.zip
+        files: openlime-${{ env.RELEASE_VERSION }}.zip
 
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
+        title: "OpenLIME Rel. ${{ env.RELEASE_VERSION }}"
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: openlime-${{ steps.get_version.outputs.VERSION }}.zip
+        file: openlime-${{ env.RELEASE_VERSION }}.zip
         tag: ${{ github.ref }}
         overwrite: true
