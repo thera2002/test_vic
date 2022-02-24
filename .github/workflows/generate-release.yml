@@ -1,7 +1,7 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: Generate release
 
 on:
   push:
@@ -14,11 +14,11 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
 
-    - name: Get the version
+    - name: Get tag version
       id: get_version
       run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
-    - name: checkout code
+    - name: Checkout code
       uses: actions/checkout@v2
 
     - name: Use Node.js ${{ matrix.node-version }}
@@ -26,21 +26,23 @@ jobs:
       with:
         cache: 'npm'
 
-    - name: install npm
+    - name: Install npm
       run: npm ci
 
-    - name: rollup
+    - name: Rollup
       run: npm run rollup
 
-    - name: zip build 
+    - name: ZIP build 
       uses: montudor/action-zip@v1
       with:
         args: zip -qq -r openlime-${{ steps.get_version.outputs.VERSION }}.zip build
 
-    - name: Release drafter
-      uses: release-drafter/release-drafter@v5
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create automatic release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: openlime-${{ steps.get_version.outputs.VERSION }}.zip
 
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
