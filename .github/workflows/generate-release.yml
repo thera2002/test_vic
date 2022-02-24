@@ -40,15 +40,7 @@ jobs:
     - name: Create automatic release
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
+        title: "OpenLIME Rel. ${{ env.RELEASE_VERSION }}"
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
         prerelease: false
         files: openlime-${{ env.RELEASE_VERSION }}.zip
-
-    - name: Upload binaries to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-        title: "OpenLIME Rel. ${{ env.RELEASE_VERSION }}"
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: openlime-${{ env.RELEASE_VERSION }}.zip
-        tag: ${{ github.ref }}
-        overwrite: true
