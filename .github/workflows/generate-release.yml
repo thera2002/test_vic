@@ -37,6 +37,9 @@ jobs:
       with:
         args: zip -qq -r openlime-${{ env.RELEASE_VERSION }}.zip build
 
+    - name: Create commits list
+      run: jsdoc/releases/gen_changelog.sh >> jsdoc/releases/rel-${{ env.RELEASE_VERSION }}.md
+
     - name: Create automatic release
       uses: ncipollo/release-action@v1
       with:
