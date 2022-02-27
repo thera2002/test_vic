@@ -34,10 +34,12 @@ jobs:
     - name: Rollup
       run: npm run rollup
 
-    - name: ZIP build 
+    - name: Install Zip 
       uses: montudor/action-zip@v1
-      with:
-        args: zip -qq -r openlime-${{ env.RELEASE_VERSION }}.zip build
+
+    - name: ZIP Output  
+      run: zip -qq -r openlime-${{ env.RELEASE_VERSION }}.zip *
+      working-directory: build
 
     - name: Create commits list
       run: jsdoc/releases/gen_changelog.sh >> jsdoc/releases/rel-${{ env.RELEASE_VERSION }}.md
