@@ -38,7 +38,7 @@ jobs:
       uses: montudor/action-zip@v1
 
     - name: ZIP Output  
-      run: zip -qq -r openlime-${{ env.RELEASE_VERSION }}.zip *
+      run: zip -qq -r openlime-${{ env.RELEASE_VERSION }}.zip .
       working-directory: build
 
     - name: Create commits list
